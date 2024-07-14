@@ -1,0 +1,14 @@
+name: 'Setup Script'
+description: 'Installs the necessary libraries and pulls cache'
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v4
+    - name: Install Clang
+      uses: egor-tensin/setup-clang@v1
+    - name: Setup Libraries
+      run: sudo apt-get install pkg-config libx11-dev libasound2-dev libudev-dev libxkbcommon-x11-0
+    - name: Rust Cache
+      uses: Swatinem/rust-cache@v2.7.3
+      with:
+        shared-key: rust_cache
