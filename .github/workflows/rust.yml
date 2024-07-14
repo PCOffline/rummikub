@@ -47,12 +47,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: ./.github/actions/setup
-    - name: Build
-      run: cargo build --release
-    - name: Save Artifact
-      uses: manoadamro/rust-release@v1
+    - name: Compile and release
+      uses: rust-build/rust-build.action@v1.4.5
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        owner: PCOffline
-        repo: https://github.com/PCOffline/rummikub
-        token: ${{ secrets.GITHUB_TOKEN }}
+        RUSTTARGET: ${{ matrix.target }}
+        EXTRA_FILES: "README.md LICENSE"
       
