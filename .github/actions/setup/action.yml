@@ -9,6 +9,9 @@ runs:
     - name: Setup Libraries
       shell: bash
       run: sudo apt-get install pkg-config libx11-dev libasound2-dev libudev-dev libxkbcommon-x11-0
+    - name: Upgrade Rust
+      shell: bash
+      run: rustup upgrade 1.79.0
     - name: Rust Cache
       uses: Swatinem/rust-cache@v2.7.3
       with:
