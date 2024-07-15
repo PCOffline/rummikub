@@ -52,7 +52,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        RUSTTARGET: ${{ matrix.target }}
+        RUSTTARGET: x86_64-unknown-linux-musl
         EXTRA_FILES: "README.md LICENSE"
-        SRC_DIR: src
       
