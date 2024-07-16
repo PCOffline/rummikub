@@ -62,7 +62,7 @@ jobs:
             os: ubuntu-latest
           - target: x86_64-apple-darwin
             # MacOS Intel Chip
-            os: macos-latest-large
+            os: macos-13
           - target: x86_64-pc-windows-msvc
             os: windows-latest
             # MacOS M1 Chip
