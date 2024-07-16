@@ -82,6 +82,9 @@ jobs:
           # the matrix because GitHub Actions changed the default architecture
           # of macos-latest since macos-14.
           target: ${{ matrix.target }}
+          # (optional) Comma-separated list of additional files to be uploaded separately.
+          # Note that glob pattern is not supported yet.
+          asset: LICENSE,README.md
           # (optional) On which platform to distribute the `.tar.gz` file.
           # [default value: unix]
           # [possible values: all, unix, windows, none]
@@ -92,3 +95,5 @@ jobs:
           zip: windows
           # (required) GitHub token for uploading assets to GitHub Releases.
           token: ${{ secrets.GITHUB_TOKEN }}
+          # (optional) custom tag to upload the release to
+          ref: refs/tags/my_tag
