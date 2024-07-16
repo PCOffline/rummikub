@@ -66,5 +66,3 @@ jobs:
           zip: windows
           # (required) GitHub token for uploading assets to GitHub Releases.
           token: ${{ secrets.GITHUB_TOKEN }}
-          # (optional) custom tag to upload the release to
-          ref: refs/tags/my_tag
