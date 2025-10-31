@@ -6,7 +6,7 @@ use crate::types::{
     turn::{Move, Turn},
 };
 use bevy::{asset::uuid::Uuid, platform::collections::HashMap};
-use bevy_ecs::{prelude::*, system::IntoResult};
+use bevy_ecs::prelude::*;
 
 pub struct Table {
     players: [Player; 4],
