@@ -226,7 +226,8 @@ impl Table {
                 .filter_map(|mv| match mv {
                     Move::Create { set_id } => self
                         .get_set(set_id)
-                        .map(|set| Ok(set.get_sum() as u16))
+                        .map(|set| set.validate().map(|_| set).or(Err(TableError::IllegalMove)))
+                        .map(|set_result| set_result.map(|set|set.get_sum() as u16))
                         .or(Some(Err(TableError::UnknownSet))),
                     _ => Some(Err(TableError::IllegalMove)),
                 })

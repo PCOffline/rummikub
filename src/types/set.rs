@@ -210,6 +210,10 @@ impl Set {
         self.remove_tile_with_index(tile_id).map(|(_, tile)| tile)
     }
 
+    pub fn validate(&self) -> Result<(), SetError> {
+        self.get_tiles_as_run().or(self.get_tiles_as_group()).map(|_| ())
+    }
+
     pub fn len(&self) -> usize {
         self.tiles.len()
     }
