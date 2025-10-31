@@ -227,7 +227,7 @@ impl Table {
                     Move::Create { set_id } => self
                         .get_set(set_id)
                         .map(|set| set.validate().map(|_| set).or(Err(TableError::IllegalMove)))
-                        .map(|set_result| set_result.map(|set|set.get_sum() as u16))
+                        .map(|set_result| set_result.map(|set| set.get_sum() as u16))
                         .or(Some(Err(TableError::UnknownSet))),
                     _ => Some(Err(TableError::IllegalMove)),
                 })
@@ -239,6 +239,9 @@ impl Table {
                 })?;
         }
 
-        Ok(())
+        self.sets
+            .values()
+            .map(|set| set.validate().or(Err(TableError::IllegalMove)))
+            .collect()
     }
 }
