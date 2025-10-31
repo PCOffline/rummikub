@@ -219,7 +219,7 @@ impl Table {
     }
 
     pub fn end_turn(&mut self, turn: Turn) -> Result<(), TableError> {
-        if turn.player.is_post_meld {
+        if !turn.player.is_post_meld {
             return turn
                 .moves
                 .into_iter()
