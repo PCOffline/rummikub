@@ -4,8 +4,15 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bevy = { version = "0.14.0", features = ["dynamic_linking"] }
-log = { version = "*", features = ["max_level_debug", "release_max_level_warn"] }
+bevy = { version = "^0.17", features = ["dynamic_linking"] }
+log = { version = "*", features = [
+    "max_level_debug",
+    "release_max_level_warn",
+] }
+rand_core = "0.9"
+bevy_rand = "0.12"
+bevy_prng = { version = "0.12", features = ["rand_chacha", "wyrand"] }
+bevy_ecs = "0.17.2"
 
 [profile.dev]
 opt-level = 1
