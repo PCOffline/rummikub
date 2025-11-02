@@ -9,9 +9,9 @@ use bevy::{asset::uuid::Uuid, platform::collections::HashMap};
 use bevy_ecs::prelude::*;
 
 pub struct Table {
-    players: [Player; 4],
-    pool: Vec<Tile>,
-    sets: HashMap<Uuid, Set>,
+    pub players: [Player; 4],
+    pub pool: Vec<Tile>,
+    pub sets: HashMap<Uuid, Set>,
 }
 
 pub enum TableError {
